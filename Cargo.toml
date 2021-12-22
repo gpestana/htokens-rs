@@ -1,0 +1,18 @@
+[package]
+name = "humanity-tokens"
+version = "0.1.0-alpha"
+authors = ["gpestana <g6pestana@gmail.com>"]
+edition = "2018"
+repository = "https://github.com/gpestana/humanity_tokens"
+homepage = "https://humanitytokens.com"
+license = "Apache-2.0"
+
+[dependencies]
+challenge-bypass-ristretto = { version = "1.0.0", features = ["serde_base64"] } 
+serde = { version = "^1.0.0", features = ["derive"] }
+serde_json = "1.0.68"
+rand = { version = "0.7", features = ["std"] }  
+rand_core = "0.5.1" 
+sha2 = "0.9.8"    
+hmac = "0.10.0" 
+actix-web = "4.0.0-beta.5"
