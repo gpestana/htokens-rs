@@ -1,4 +1,5 @@
-use actix_web::{HttpResponse, Responder};
+use actix_web::{HttpResponse, Responder, Error};
+use futures::future::Ready;
 use std::option::Option;
 
 use challenge_bypass_ristretto::voprf::{
@@ -21,17 +22,21 @@ pub struct SigningResponse {
 }
 
 impl Responder for SigningResponse {
-    fn respond_to(self, _req: &actix_web::HttpRequest) -> HttpResponse {
+    type Error = Error;
+    type Future = Ready<Result<HttpResponse, Error>>;
+
+    //fn respond_to(self, _req: &actix_web::HttpRequest) -> HttpResponse {
+    fn respond_to(self, _req: &actix_web::HttpRequest) -> futures::future::Ready<Result<HttpResponse, actix_web::Error>> {
         let body = serde_json::to_string(&self).unwrap();
 
         match self.error.as_str() {
-            "Request Malformed" => return HttpResponse::BadRequest().finish(),
+            "Request Malformed" => return futures::future::ready(Err(HttpResponse::BadRequest().finish())),
             &_ => (),
         }
 
-        HttpResponse::Ok()
+        futures::future::ready(Ok(HttpResponse::Ok()
             .content_type("application/json")
-            .body(body)
+            .body(body)))
     }
 }
 
