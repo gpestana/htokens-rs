@@ -1,9 +1,9 @@
 [package]
-name = "humanity-tokens"
+name = "htokens-rs"
 version = "0.1.0-alpha"
 authors = ["gpestana <g6pestana@gmail.com>"]
 edition = "2018"
-repository = "https://github.com/gpestana/humanity_tokens"
+repository = "https://github.com/gpestana/htokens-rs"
 homepage = "https://humanitytokens.com"
 license = "Apache-2.0"
 
