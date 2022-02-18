@@ -1,4 +1,5 @@
 use actix_web::{HttpResponse, Responder};
+use actix_http::body::BoxBody;
 use std::option::Option;
 
 use challenge_bypass_ristretto::voprf::{
@@ -21,6 +22,8 @@ pub struct SigningResponse {
 }
 
 impl Responder for SigningResponse {
+    type Body = BoxBody;
+
     fn respond_to(self, _req: &actix_web::HttpRequest) -> HttpResponse {
         let body = serde_json::to_string(&self).unwrap();
 
@@ -62,6 +65,8 @@ pub struct RedeemResponse {
 }
 
 impl Responder for RedeemResponse {
+    type Body = BoxBody;
+
     fn respond_to(self, _req: &actix_web::HttpRequest) -> HttpResponse {
         let body = serde_json::to_string(&self).unwrap();
 

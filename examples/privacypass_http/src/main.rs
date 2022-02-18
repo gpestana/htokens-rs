@@ -1,5 +1,5 @@
-use humanity_tokens::privacypass::wallet::*;
-use humanity_tokens::privacypass::models::{SigningRequest, SigningResponse, RedeemRequest, 
+use htokens_rs::privacypass::wallet::*;
+use htokens_rs::privacypass::models::{SigningRequest, SigningResponse, RedeemRequest, 
     RedeemResponse};
 
 fn main() {

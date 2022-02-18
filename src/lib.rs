@@ -1,4 +1,5 @@
 pub mod privacypass;
+pub mod traits;
 
 #[cfg(test)]
 mod tests {

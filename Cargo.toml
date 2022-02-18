@@ -15,4 +15,6 @@ rand = { version = "0.7", features = ["std"] }
 rand_core = "0.5.1" 
 sha2 = "0.9.8"    
 hmac = "0.10.0" 
-actix-web = "4.0.0-beta.5"
+#actix-web = "4.0.0-beta.5"
+actix-web = "4.0.0-rc.1"
+actix-http = "3.0.0-rc.1"
